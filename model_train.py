@@ -148,7 +148,8 @@ mc = ModelCheckpoint('./model.h5', monitor = 'val_accuracy', mode = 'max', verbo
 y_train.shape
 
 
-hist = model.fit(x_train, y_train, epochs = 5, batch_size = 64, validation_data=(x_validate, y_validate),verbose = 1, callbacks= [es, mc])
+hist = model.fit(x_train, y_train, epochs = 5, batch_size = 64, validation_data=(x_validate, y_validate),verbose = 1, callbacks= [es, mc]) # save in eager mode
+model.save('emopred.h5') #save in keras mode
 
 """ import joblib
 joblib.dump(transformer, "data_transformer.joblib") """
